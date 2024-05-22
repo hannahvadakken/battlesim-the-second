@@ -15,6 +15,8 @@ public class Main {
   public static Inventory inventory;
   public static void main(String[] args) {
 
+    new BattleSimGUI();
+
     Music.loop("./audiofiles/loop.wav");
 
     Scanner sc = new Scanner(System.in);
