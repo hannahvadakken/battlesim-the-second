@@ -21,14 +21,16 @@ public class BattleSimGUI {
         panel = new BattlePanel(this);
         frame.add(panel);
         frame.repaint();
+        frame.revalidate();
     }
 
     public void showShop(){
         if(panel != null){
             frame.remove(panel);
         }
-        panel = new BattlePanel(this);
+        panel = new ShopPanel(this);
         frame.add(panel);
         frame.repaint();
+        frame.revalidate();
     }
 }
