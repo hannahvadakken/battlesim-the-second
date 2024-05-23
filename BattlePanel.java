@@ -1,15 +1,18 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class BattlePanel extends JPanel{
     public BattlePanel(BattleSimGUI screen){
-        setLayout(new BorderLayout());
-        setSize(100, 100);
+        //setLayout(new BorderLayout());
+        setSize(10, 10);
+        //this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
         JButton goShop = new JButton("Go to Shop");
         add(goShop, BorderLayout.SOUTH);

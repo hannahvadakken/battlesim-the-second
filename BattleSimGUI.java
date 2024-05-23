@@ -19,7 +19,8 @@ public class BattleSimGUI {
             frame.remove(panel);
         }
         panel = new BattlePanel(this);
-        frame.add(panel);
+        panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        frame.add(panel, BorderLayout.CENTER);
         frame.repaint();
         frame.revalidate();
     }
