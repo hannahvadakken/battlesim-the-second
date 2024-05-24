@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,9 +11,12 @@ import javax.swing.JPanel;
 
 public class BattlePanel extends JPanel{
     public BattlePanel(BattleSimGUI screen){
-        //setLayout(new BorderLayout());
-        setSize(10, 10);
-        //this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        setLayout(new BorderLayout());
+        setPreferredSize(new Dimension(600, 600));
+        //setLocation(100, 100);
+        setBackground(Color.BLUE);
+        setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        setVisible(true);
 
         JButton goShop = new JButton("Go to Shop");
         add(goShop, BorderLayout.SOUTH);
@@ -28,6 +32,7 @@ public class BattlePanel extends JPanel{
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
+        g.setColor(Color.WHITE);
         g.drawString("Da Battle", 300, 300);
     }
 }

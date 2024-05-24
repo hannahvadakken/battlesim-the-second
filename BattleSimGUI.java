@@ -9,7 +9,11 @@ public class BattleSimGUI {
         frame = new JFrame("Unnamed Battle Sim Game");
         frame.setSize(500, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new BorderLayout());
         frame.setVisible(true);
+        Container contentPane = frame.getContentPane();
+        contentPane.setLayout(new FlowLayout(FlowLayout.LEFT, 30,30));
+        //frame.getContentPane().setLayout(null);
 
         showBattle();
     }
@@ -19,7 +23,6 @@ public class BattleSimGUI {
             frame.remove(panel);
         }
         panel = new BattlePanel(this);
-        panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         frame.add(panel, BorderLayout.CENTER);
         frame.repaint();
         frame.revalidate();
