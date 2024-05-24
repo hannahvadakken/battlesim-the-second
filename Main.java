@@ -29,7 +29,7 @@ public class Main {
 
     inventory = new Inventory();
 
-    System.out.println("\nAt any point, type '9' to see your characters' stats and move pools.\n\n"); 
+    System.out.println("\nAt any point, type '9' to access settings or your characters' stats and move pools.\n\n"); 
 
 
     while((p1.getHp() > 0 || p2.getHp() > 0) && enemy.getHp() > 0){
@@ -81,6 +81,11 @@ public class Main {
     turnOrder.remove(enemy);
     Music.sound("./audiofiles/win_sound.wav");
 
+    int goldReceived = counter % 3 == 0 && counter > 0 ? 30 : (int)(Math.random() * 5 + 10);
+
+    System.out.println("Received " + goldReceived + " gold!");
+    Inventory.setGold(Inventory.getGold() + goldReceived);
+
     enemy = ++counter % 3 == 0 ? new Boss() : new Enemy();
     
     round();
@@ -119,7 +124,6 @@ public class Main {
 
   }
 
-
   public static int readInt(int lower, int upper){
 
     Scanner sc = new Scanner(System.in);
@@ -150,27 +154,50 @@ public class Main {
 
   private static void help(){
 
-    System.out.println("What information would you like to see?");
-    System.out.println("(0) " + p1.getName() + ", (1) " + p2.getName() + ", (2) Inventory");
+    System.out.println("What would you like to do?");
+    System.out.println("(0) Mute/Unmute Audio (1) See character move pools and stats (2) View Inventory");
 
-    PC player = p1;
+    int choice1 = readInt(0, 2); 
 
-    int option = readInt(0, 2);
 
-    if(option == 2){
-      System.out.println(inventory.getPrintableInventory());
-      return;
+    switch(choice1){
+
+      case 0:
+        Music.muteToggle();
+        System.out.println("Music toggled!");
+        break;
+
+      case 2:
+        System.out.println(inventory.getPrintableInventory());
+        break;
+
+      case 1:
+
+        System.out.println("What information would you like to see?");
+        System.out.println("(0) " + p1.getName() + ", (1) " + p2.getName());
+    
+        PC player = p1;
+    
+        int option = readInt(0, 1);
+    
+        if(option == 1){
+          player = p2;
+        }
+    
+        System.out.println(player.getInfo());
+    
+        for(int i = 0; i < 5; i++){
+          System.out.println("(" + i + ") " + player.getMove(i).getInfo());
+        }
+        
+        break;
+
+
+
+
     }
 
-    if(option == 1){
-      player = p2;
-    }
 
-    System.out.println(player.getInfo());
-
-    for(int i = 0; i < 5; i++){
-      System.out.println("(" + i + ") " + player.getMove(i).getInfo());
-    }
 
   }
 

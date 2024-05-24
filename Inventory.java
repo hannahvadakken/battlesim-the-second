@@ -3,6 +3,7 @@ import java.util.LinkedList;
 public class Inventory {
 
     private static LinkedList<Item> inventory;
+    private static int gold;
 
     public Inventory(){
         inventory = new LinkedList<Item>();
@@ -12,6 +13,16 @@ public class Inventory {
         inventory.add(new Potion("Endurance Potion", 'e'));
         inventory.add(new Potion("Magic Potion", 'm'));
 
+        gold = 0;
+
+    }
+
+    public static int getGold(){
+        return gold;
+    }
+
+    public static void setGold(int amt){
+        gold = amt;
     }
 
     public String getPrintableInventory(){
@@ -19,10 +30,10 @@ public class Inventory {
 
         for(int i = 0; i < inventory.size(); i++){
             Item x = inventory.get(i);
-            inventoryString += ( "(" + i + ")" + x.getName() + ", ");
+            inventoryString += ( "(" + i + ") " + x.getName() + ", ");
 
         }
-        return inventoryString + "]";
+        return inventoryString + "]\n gold: " + gold;
     }
 
     public void remove(Item thing){
@@ -36,5 +47,6 @@ public class Inventory {
     public int size(){
         return inventory.size();
     }
+
     
 }

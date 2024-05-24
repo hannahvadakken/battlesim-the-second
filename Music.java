@@ -11,8 +11,22 @@ import javax.sound.sampled.SourceDataLine;
 
 public class Music {
 
+    private static boolean muted = false;
+
+    public static void muteToggle(){
+        muted = !muted;
+
+        if(!muted)
+            loop("./audiofiles/loop.wav");
+
+    }
+
 
     public static void sound(String s) {
+
+        if(muted)
+            return;
+
         try {
             String file = s;
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(Music.class.getResourceAsStream(file));
@@ -49,6 +63,7 @@ public class Music {
 
     public static void loop(String s) {
 
+        
 
         Thread musicThread = new Thread(() -> {
             try {
@@ -70,10 +85,20 @@ public class Music {
 
                 while(a==0){
                     // Read and play the audio data
+
                     while ((bytesRead = audioInputStream.read(buffer)) != -1) {
+                        
+                        if(muted){
+                            clip.close();
+                            audioInputStream.close();
+                            return;
+                        }
+
                         clip.write(buffer, 0, bytesRead);
+
                     }
                     audioInputStream = AudioSystem.getAudioInputStream(Music.class.getResourceAsStream(file));
+
                 }
 
 
