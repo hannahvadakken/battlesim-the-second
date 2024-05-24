@@ -13,9 +13,11 @@ public class ShopPanel extends JPanel{
 
         JButton goBattle = new JButton("Go to Battle");
         add(goBattle, BorderLayout.SOUTH);
+
         goBattle.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent a){
+                screen.addDialogue("Going to battle...");
                 screen.showBattle();
             }
         });

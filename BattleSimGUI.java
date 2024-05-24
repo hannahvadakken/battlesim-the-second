@@ -4,6 +4,7 @@ import java.awt.*;
 public class BattleSimGUI {
     private JFrame frame;
     private JPanel panel; 
+    private TextPanel text;
 
     public BattleSimGUI(){
         frame = new JFrame("Unnamed Battle Sim Game");
@@ -11,9 +12,15 @@ public class BattleSimGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
         frame.setVisible(true);
+
+        text = new TextPanel();
+        frame.add(text, FlowLayout.LEFT);
+
+
+        //i hate containers
         Container contentPane = frame.getContentPane();
-        contentPane.setLayout(new FlowLayout(FlowLayout.LEFT, 30,30));
-        //frame.getContentPane().setLayout(null);
+        contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 30,30));
+        
 
         showBattle();
     }
@@ -36,5 +43,9 @@ public class BattleSimGUI {
         frame.add(panel);
         frame.repaint();
         frame.revalidate();
+    }
+
+    public void addDialogue(String words){
+        text.addText(words);
     }
 }

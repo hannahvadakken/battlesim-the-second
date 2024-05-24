@@ -24,6 +24,7 @@ public class BattlePanel extends JPanel{
         goShop.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent a){
+                screen.addDialogue("Going to shop...");
                 screen.showShop();
             }
         });
