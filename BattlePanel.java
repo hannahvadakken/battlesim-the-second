@@ -13,7 +13,6 @@ public class BattlePanel extends JPanel{
     public BattlePanel(BattleSimGUI screen){
         setLayout(new BorderLayout());
         setPreferredSize(new Dimension(600, 600));
-        //setLocation(100, 100);
         setBackground(Color.BLUE);
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
         setVisible(true);

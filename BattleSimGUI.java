@@ -14,7 +14,7 @@ public class BattleSimGUI {
         frame.setVisible(true);
 
         text = new TextPanel();
-        frame.add(text, FlowLayout.LEFT);
+        frame.add(text, BorderLayout.WEST);
 
 
         //i hate containers
@@ -40,7 +40,7 @@ public class BattleSimGUI {
             frame.remove(panel);
         }
         panel = new ShopPanel(this);
-        frame.add(panel);
+        frame.add(panel, BorderLayout.CENTER);
         frame.repaint();
         frame.revalidate();
     }
