@@ -13,6 +13,9 @@ public class Main {
   private static int counter;
 
   public static Inventory inventory;
+
+  //private static BattleSimGUI gui;
+  
   public static void main(String[] args) {
 
     new BattleSimGUI();

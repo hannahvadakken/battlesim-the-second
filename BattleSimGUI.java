@@ -20,6 +20,9 @@ public class BattleSimGUI {
         //i hate containers
         Container contentPane = frame.getContentPane();
         contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 30,30));
+
+        TextPrintStream stream = new TextPrintStream(System.out, this);
+        System.setOut(stream);
         
 
         showBattle();
