@@ -23,9 +23,10 @@ public class TextPanel extends JPanel {
         tarea.setEditable(false); 
         tarea.setLineWrap(true); 
         tarea.setWrapStyleWord(true);
+        tarea.setLayout(new FlowLayout(FlowLayout.CENTER));
 
         JScrollPane scroll = new JScrollPane();
-        add(scroll, FlowLayout.CENTER);
+        add(scroll);
     }
 
     public void addText(String words){
