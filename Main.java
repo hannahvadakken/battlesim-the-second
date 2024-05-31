@@ -24,16 +24,21 @@ public class Main {
 
     Scanner sc = new Scanner(System.in);
 
-    System.out.println("\n\n\nChoose a class for player one.");
-    p1 = characterSelect();
 
-    System.out.println("\nChoose a class for player two.");
-    p2 = characterSelect();
+
+    System.out.println("Choose a class for player one.");
+    //p1 = characterSelect();
+
+    System.out.println("Choose a class for player two.");
+    //p2 = characterSelect();
 
     inventory = new Inventory();
 
-    System.out.println("\nAt any point, type '9' to access settings or your characters' stats and move pools.\n\n"); 
+    System.out.println("At any point, type '9' to access settings or your characters' stats and move pools.\n\n"); 
 
+    while(p1 == null || p2 == null){
+
+    }
 
     while((p1.getHp() > 0 || p2.getHp() > 0) && enemy.getHp() > 0){
 

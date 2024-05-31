@@ -5,6 +5,8 @@ public class BattleSimGUI {
     private JFrame frame;
     private JPanel panel; 
     private TextPanel text;
+    private boolean player1 = true;
+
 
     public BattleSimGUI(){
         frame = new JFrame("Unnamed Battle Sim Game");
@@ -56,6 +58,19 @@ public class BattleSimGUI {
         frame.add(panel, BorderLayout.CENTER);
         frame.repaint();
         frame.revalidate();
+    }
+
+    public void charSelect(PC character){
+        if(player1){
+            Main.p1 = character;
+            System.out.println("Character one selected.");
+            player1 = false;
+        }
+        else{
+            Main.p2 = character;
+            System.out.println("Character two selected..");
+            showBattle();
+        }
     }
 
     public void addDialogue(String words){

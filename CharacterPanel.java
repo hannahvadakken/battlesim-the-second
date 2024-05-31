@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class CharacterPanel extends JPanel{
+
     public CharacterPanel(BattleSimGUI screen){
         setLayout(new GridLayout());
         setPreferredSize(new Dimension(600, 600));
@@ -32,6 +33,7 @@ public class CharacterPanel extends JPanel{
             @Override
             public void actionPerformed(ActionEvent a){
                 PC character = new Brawler();
+                screen.charSelect(character);
             }
         });
 
@@ -39,6 +41,7 @@ public class CharacterPanel extends JPanel{
             @Override
             public void actionPerformed(ActionEvent a){
                 PC character = new Cleric();
+                screen.charSelect(character);
             }
         });
 
@@ -46,6 +49,7 @@ public class CharacterPanel extends JPanel{
             @Override
             public void actionPerformed(ActionEvent a){
                 PC character = new Mage();
+                screen.charSelect(character);
             }
         });
 
@@ -53,6 +57,7 @@ public class CharacterPanel extends JPanel{
             @Override
             public void actionPerformed(ActionEvent a){
                 PC character = new Thief();
+                screen.charSelect(character);
             }
         });
     }
