@@ -25,7 +25,7 @@ public class BattleSimGUI {
         System.setOut(stream);
         
 
-        showBattle();
+        showCharacterSelectionScreen();
     }
 
     public void showBattle(){
@@ -43,6 +43,16 @@ public class BattleSimGUI {
             frame.remove(panel);
         }
         panel = new ShopPanel(this);
+        frame.add(panel, BorderLayout.CENTER);
+        frame.repaint();
+        frame.revalidate();
+    }
+
+    public void showCharacterSelectionScreen(){
+        if(panel != null){
+            frame.remove(panel);
+        }
+        panel = new CharacterPanel(this);
         frame.add(panel, BorderLayout.CENTER);
         frame.repaint();
         frame.revalidate();
