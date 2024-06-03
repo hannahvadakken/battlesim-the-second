@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,30 +10,32 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class ShopPanel extends JPanel{
-    public ShopPanel(BattleSimGUI screen){
-        setLayout(new BorderLayout());
-        setPreferredSize(new Dimension(600, 600));
-        setBackground(Color.BLUE);
+public class ActionPanel extends JPanel{
+    public ActionPanel(BattlePanel screen){
+        setLayout(new GridLayout(1, 2));
+        setPreferredSize(new Dimension(600, 150));
+        setBackground(Color.WHITE);
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
         setVisible(true);
 
-        JButton goBattle = new JButton("Go to Battle");
-        add(goBattle, BorderLayout.NORTH);
+        JButton move = new JButton("Moves");
+        JButton bag = new JButton("Bag");
 
-        goBattle.addActionListener(new ActionListener() {
+        add(move);
+        add(bag);
+
+        move.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent a){
-                screen.addDialogue("Going to battle...");
-                screen.showBattle();
+                screen.showMovePanel();
             }
         });
     }
-    
+
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
         g.setColor(Color.WHITE);
-        g.drawString("Da Shop", 300, 300);
+        g.drawString("Da Battle", 300, 300);
     }
 }

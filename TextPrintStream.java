@@ -18,4 +18,14 @@ public class TextPrintStream extends PrintStream {
     public void println(Object obj) {
         gui.addDialogue(String.valueOf(obj));
     }
+
+    @Override
+    public void print(String s) {
+        gui.addDialogue(s);
+    }
+
+    @Override
+    public void print(Object obj) {
+        gui.addDialogue(String.valueOf(obj));
+    }
 }

@@ -10,6 +10,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class BattlePanel extends JPanel{
+
+    private JPanel subpanel; 
+
     public BattlePanel(BattleSimGUI screen){
         setLayout(new BorderLayout());
         setPreferredSize(new Dimension(600, 600));
@@ -18,7 +21,9 @@ public class BattlePanel extends JPanel{
         setVisible(true);
 
         JButton goShop = new JButton("Go to Shop");
-        add(goShop, BorderLayout.SOUTH);
+        //add(goShop, BorderLayout.NORTH);
+
+        showActionPanel();
 
         goShop.addActionListener(new ActionListener() {
             @Override
@@ -27,6 +32,26 @@ public class BattlePanel extends JPanel{
                 screen.showShop();
             }
         });
+    }
+
+    public void showActionPanel(){
+        if(subpanel != null){
+            this.remove(subpanel);
+        }
+        subpanel = new ActionPanel(this);
+        this.add(subpanel, BorderLayout.SOUTH);
+        this.repaint();
+        this.revalidate();
+    }
+
+    public void showMovePanel(){
+        if(subpanel != null){
+            this.remove(subpanel);
+        }
+        subpanel = new MovePanel(this);
+        this.add(subpanel, BorderLayout.SOUTH);
+        this.repaint();
+        this.revalidate();
     }
 
     @Override

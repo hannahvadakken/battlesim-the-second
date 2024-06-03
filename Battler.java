@@ -179,6 +179,10 @@ public abstract class Battler implements Comparable<Battler>{
 
   }
 
+  public ArrayList<Move> getMovePool(){
+    return movePool;
+  }
+
   public abstract void yourTurn();
 
 }
