@@ -63,11 +63,13 @@ public class BattleSimGUI {
     public void charSelect(PC character){
         if(player1){
             Main.p1 = character;
+            System.out.println(Main.p1);
             System.out.println("Character one selected.");
             player1 = false;
         }
         else{
             Main.p2 = character;
+            System.out.println(Main.p2);
             System.out.println("Character two selected..");
             showBattle();
         }
