@@ -12,10 +12,9 @@ public class TextPanel extends JPanel {
     private JTextArea tarea; 
 
     public TextPanel(){
-        //setBackground(Color.BLACK);
+        setBackground(Color.BLACK);
         setLayout(new BorderLayout());
-        //setSize(new Dimension(500, 400));
-        setPreferredSize(new Dimension(500, 400));
+        setPreferredSize(new Dimension(600, 600));
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
         setVisible(true);
 
@@ -27,6 +26,7 @@ public class TextPanel extends JPanel {
 
         JScrollPane scroll = new JScrollPane();
         add(scroll);
+
     }
 
     public void addText(String words){

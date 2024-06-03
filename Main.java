@@ -6,13 +6,16 @@ public class Main {
 
   public static ArrayList<Battler> turnOrder = new ArrayList<>(3);
 
-  public static NPC enemy = new Enemy();
+  public static NPC enemy;
 
   public static PC p1, p2 = null;
 
   private static int counter;
 
   public static Inventory inventory;
+
+  //private static BattleSimGUI gui;
+  
   public static void main(String[] args) {
 
     new BattleSimGUI();
@@ -21,16 +24,25 @@ public class Main {
 
     Scanner sc = new Scanner(System.in);
 
-    System.out.println("\n\n\nChoose a class for player one.");
-    p1 = characterSelect();
 
-    System.out.println("\nChoose a class for player two.");
-    p2 = characterSelect();
+
+    System.out.println("Choose a class for player one.");
+    //p1 = characterSelect();
+
+    System.out.println("Choose a class for player two.");
+    //p2 = characterSelect();
 
     inventory = new Inventory();
 
-    System.out.println("\nAt any point, type '9' to access settings or your characters' stats and move pools.\n\n"); 
+    System.out.println("At any point, type '9' to access settings or your characters' stats and move pools.\n\n"); 
 
+    while(p2 == null){
+      System.out.print("");
+    }
+
+    System.out.println("\n");
+
+    enemy = new Enemy();
 
     while((p1.getHp() > 0 || p2.getHp() > 0) && enemy.getHp() > 0){
 

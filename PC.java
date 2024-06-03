@@ -42,7 +42,7 @@ public abstract class PC extends Battler implements GetInfo{
       return;
     }
 
-    System.out.print("What should " + getName() + " do?  ");
+    System.out.println("What should " + getName() + " do?  ");
 
     System.out.println("0 for attack, 1 for bag, 9 for info");
 
@@ -64,7 +64,7 @@ public abstract class PC extends Battler implements GetInfo{
       System.out.println("Who would you like to use " + currentMove.getName() + " on?");
         
       for(int i = 0; i < Main.turnOrder.size(); i++){
-        System.out.print(String.format("(%d) %s // ", i, Main.turnOrder.get(i).getName()));
+        System.out.println(String.format("(%d) %s // ", i, Main.turnOrder.get(i).getName()));
       }
 
       Battler target = Main.turnOrder.get(Main.readInt(0, Main.turnOrder.size() - 1));
@@ -94,7 +94,7 @@ public abstract class PC extends Battler implements GetInfo{
     System.out.println("Who would you like to use " + theItemInQuestion.getName() + " on?");
         
     for(int i = 0; i < Main.turnOrder.size(); i++){
-      System.out.print(String.format("(%d) %s // ", i, Main.turnOrder.get(i).getName()));
+      System.out.println(String.format("(%d) %s // ", i, Main.turnOrder.get(i).getName()));
     }
 
     Battler target = Main.turnOrder.get(Main.readInt(0, Main.turnOrder.size() - 1));
@@ -111,6 +111,7 @@ public abstract class PC extends Battler implements GetInfo{
 
 
   }
+  
 }
 
 }
