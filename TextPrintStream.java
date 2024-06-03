@@ -14,6 +14,7 @@ public class TextPrintStream extends PrintStream {
         gui.addDialogue(s);
     }
 
+
     @Override
     public void println(Object obj) {
         gui.addDialogue(String.valueOf(obj));

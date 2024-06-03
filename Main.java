@@ -18,7 +18,9 @@ public class Main {
   
   public static void main(String[] args) {
 
+    System.out.println("howdy pardner");
     new BattleSimGUI();
+    System.out.println("hee ho!");
 
     Music.loop("./audiofiles/loop.wav");
 

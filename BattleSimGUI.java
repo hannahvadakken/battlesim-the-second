@@ -23,9 +23,12 @@ public class BattleSimGUI {
         Container contentPane = frame.getContentPane();
         contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 30,30));
 
+        System.out.println("drugs");
         TextPrintStream stream = new TextPrintStream(System.out, this);
-        System.setOut(stream);
-        
+        System.out.println("alcohol");
+        //System.setOut(stream);
+        System.out.println("premarital sex");
+
 
         showCharacterSelectionScreen();
     }

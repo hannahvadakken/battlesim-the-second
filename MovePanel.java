@@ -24,7 +24,7 @@ public class MovePanel extends JPanel{
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
         setVisible(true);
 
-        //updateButtons(Main.turnOrder.get(1));
+        updateButtons(Main.turnOrder.get(0));
 
 
         one.addActionListener(new ActionListener() {
@@ -42,7 +42,7 @@ public class MovePanel extends JPanel{
         g.drawString("Da Battle", 300, 300);
     }
 
-    public void updateButtons(PC curr){
+    public void updateButtons(Battler curr){
         removeAll();
 
         one = new JButton(curr.getMove(0).getName());
