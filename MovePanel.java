@@ -16,7 +16,7 @@ public class MovePanel extends JPanel{
     private JButton three;
     private JButton four;
     private JButton five;
-    //private Battler current;
+    private Battler current;
 
     public MovePanel(){
         setLayout(new GridLayout(5, 1));
@@ -28,7 +28,7 @@ public class MovePanel extends JPanel{
         for (Battler battler : Main.turnOrder) {
             if (battler instanceof PC) {
                 updateButtons((PC) battler);
-                break; // Show moves for the first PC only (assuming one PC goes first)
+                break;
             }
         }
 
@@ -42,7 +42,8 @@ public class MovePanel extends JPanel{
         one.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent a){
-                
+                Move move = current.getMove(0);
+                move.use(current, Main.enemy);
             }
         });
     }
@@ -56,7 +57,7 @@ public class MovePanel extends JPanel{
 
     public void updateButtons(PC current){
         removeAll();
-
+        this.current = current;
         one = new JButton(current.getMove(0).getName());
         two = new JButton(current.getMove(1).getName());
         three = new JButton(current.getMove(2).getName());
