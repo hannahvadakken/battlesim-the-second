@@ -20,7 +20,7 @@ public class TextPanel extends JPanel {
         setPreferredSize(new Dimension(600, 600));
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
     
-        tarea = new JLabel();
+        //tarea = new JLabel();
         test = new JTextArea();
 
         // tarea.setVerticalAlignment(SwingConstants.TOP);

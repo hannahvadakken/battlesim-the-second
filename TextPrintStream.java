@@ -11,7 +11,7 @@ public class TextPrintStream extends PrintStream {
 
     @Override
     public void println(String s){
-        gui.addDialogue(s);
+        gui.addDialogue(s + "\n");
     }
 
 
