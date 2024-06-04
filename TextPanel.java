@@ -4,12 +4,15 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 
 import javax.swing.BorderFactory;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 
 public class TextPanel extends JPanel {
-    private JTextArea tarea; 
+    private JLabel tarea; 
+    private JTextArea test;
 
     public TextPanel(){
         setBackground(Color.WHITE);
@@ -17,24 +20,32 @@ public class TextPanel extends JPanel {
         setPreferredSize(new Dimension(600, 600));
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
     
-        tarea = new JTextArea();
+        tarea = new JLabel();
+        test = new JTextArea();
 
-        tarea.setEditable(false); 
-        tarea.setLineWrap(true); 
-        tarea.setWrapStyleWord(true);
-        tarea.setLayout(new FlowLayout(FlowLayout.CENTER));
+        // tarea.setVerticalAlignment(SwingConstants.TOP);
+        // tarea.setHorizontalAlignment(SwingConstants.LEFT);
+        // tarea.setPreferredSize(new Dimension(600, 600));
+        // add(tarea, BorderLayout.CENTER);
+
+        test.setEditable(false); 
+        test.setLineWrap(true); 
+        test.setWrapStyleWord(true);
+        //add(test, BorderLayout.CENTER);
+    
+
+        //tarea.setLayout(new FlowLayout(FlowLayout.CENTER));
         setVisible(true);
 
-        JScrollPane scroll = new JScrollPane();
-        add(scroll);
-
-        
-
-
+        JScrollPane scroll = new JScrollPane(test);
+        add(scroll, BorderLayout.CENTER);
     }
 
     public void addText(String words){
-        tarea.append(words + "\n");
+        test.append(words);
+        //test.append("\n");
+        // String currentText = tarea.getText();
+        // tarea.setText(currentText + words);
     }
 
 

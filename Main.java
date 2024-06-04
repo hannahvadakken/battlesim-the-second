@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+import javax.swing.SwingUtilities;
+
 public class Main {
 
   public static ArrayList<Battler> turnOrder = new ArrayList<>(3);
@@ -18,15 +20,13 @@ public class Main {
   
   public static void main(String[] args) {
 
-    System.out.println("howdy pardner");
+    //SwingUtilities.invokeLater(() -> new BattleSimGUI());
     new BattleSimGUI();
-    System.out.println("hee ho!");
+    //System.out.println("hee ho!");
 
     Music.loop("./audiofiles/loop.wav");
 
-    Scanner sc = new Scanner(System.in);
-
-
+    //Scanner sc = new Scanner(System.in);
 
     System.out.println("Choose a class for player one.");
     //p1 = characterSelect();

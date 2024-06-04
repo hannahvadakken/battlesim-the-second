@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.PrintStream;
 
 public class BattleSimGUI {
     private JFrame frame;
@@ -23,11 +24,10 @@ public class BattleSimGUI {
         Container contentPane = frame.getContentPane();
         contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 30,30));
 
-        System.out.println("drugs");
-        TextPrintStream stream = new TextPrintStream(System.out, this);
-        System.out.println("alcohol");
-        //System.setOut(stream);
-        System.out.println("premarital sex");
+        PrintStream stream = new TextPrintStream(System.out, this);
+        System.setOut(stream);
+
+        //System.out.println("premarital sex");
 
 
         showCharacterSelectionScreen();

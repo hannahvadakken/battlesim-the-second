@@ -23,10 +23,12 @@ public class TextPrintStream extends PrintStream {
     @Override
     public void print(String s) {
         gui.addDialogue(s);
+        super.print(s);
     }
 
     @Override
     public void print(Object obj) {
         gui.addDialogue(String.valueOf(obj));
+        super.print(obj);
     }
 }

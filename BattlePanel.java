@@ -21,7 +21,7 @@ public class BattlePanel extends JPanel{
         setVisible(true);
 
         JButton goShop = new JButton("Go to Shop");
-        //add(goShop, BorderLayout.NORTH);
+        add(goShop, BorderLayout.NORTH);
 
         showActionPanel();
 
