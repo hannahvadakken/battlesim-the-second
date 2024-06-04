@@ -16,7 +16,7 @@ public class Main {
 
   public static Inventory inventory;
 
-  //private static BattleSimGUI gui;
+  private static MovePanel gui;
   
   public static void main(String[] args) {
 
@@ -62,7 +62,7 @@ public class Main {
     for(Battler current: turnOrder){
       System.out.println();
       current.yourTurn();
-
+      
       if(enemy.getHp() <= 0){
         
         break;

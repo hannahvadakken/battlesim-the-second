@@ -16,15 +16,21 @@ public class MovePanel extends JPanel{
     private JButton three;
     private JButton four;
     private JButton five;
+    //private Battler current;
 
-    public MovePanel(BattlePanel screen){
+    public MovePanel(){
         setLayout(new GridLayout(5, 1));
         setPreferredSize(new Dimension(600, 150));
         setBackground(Color.WHITE);
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
         setVisible(true);
 
-        updateButtons(Main.turnOrder.get(0));
+        for (Battler battler : Main.turnOrder) {
+            if (battler instanceof PC) {
+                updateButtons((PC) battler);
+                break; // Show moves for the first PC only (assuming one PC goes first)
+            }
+        }
 
         add(one);
         add(two);
@@ -48,14 +54,14 @@ public class MovePanel extends JPanel{
         g.drawString("Da Battle", 300, 300);
     }
 
-    public void updateButtons(Battler curr){
+    public void updateButtons(PC current){
         removeAll();
 
-        one = new JButton(curr.getMove(0).getName());
-        two = new JButton(curr.getMove(1).getName());
-        three = new JButton(curr.getMove(2).getName());
-        four = new JButton(curr.getMove(3).getName());
-        five = new JButton(curr.getMove(4).getName());
+        one = new JButton(current.getMove(0).getName());
+        two = new JButton(current.getMove(1).getName());
+        three = new JButton(current.getMove(2).getName());
+        four = new JButton(current.getMove(3).getName());
+        five = new JButton(current.getMove(4).getName());
 
     }
 }
