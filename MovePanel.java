@@ -18,35 +18,27 @@ public class MovePanel extends JPanel{
     private JButton five;
     private Battler current;
 
-    public MovePanel(){
+    public MovePanel(BattlePanel screen){
         setLayout(new GridLayout(5, 1));
         setPreferredSize(new Dimension(600, 150));
         setBackground(Color.WHITE);
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
         setVisible(true);
-
-        for (Battler battler : Main.turnOrder) {
-            if (battler instanceof PC) {
-                updateButtons((PC) battler);
-                break;
-            }
+        
+        if (Main.current instanceof PC) {
+            updateButtons((PC) Main.current);
+    
+            one.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent a){
+                    Move move = current.getMove(0);
+                    move.use(current, Main.enemy);
+                    screen.showActionPanel();
+    
+                }
+                });
         }
-
-        add(one);
-        add(two);
-        add(three);
-        add(four);
-        add(five);
-
-
-        one.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent a){
-                Move move = current.getMove(0);
-                move.use(current, Main.enemy);
-            }
-        });
-    }
+        }
 
     @Override
     protected void paintComponent(Graphics g){
@@ -63,6 +55,12 @@ public class MovePanel extends JPanel{
         three = new JButton(current.getMove(2).getName());
         four = new JButton(current.getMove(3).getName());
         five = new JButton(current.getMove(4).getName());
+
+        add(one);
+        add(two);
+        add(three);
+        add(four);
+        add(five);
 
     }
 }

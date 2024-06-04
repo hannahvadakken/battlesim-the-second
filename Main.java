@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 import javax.swing.SwingUtilities;
@@ -16,7 +18,9 @@ public class Main {
 
   public static Inventory inventory;
 
-  private static MovePanel gui;
+  public static Queue<Battler> turnList = new LinkedList<>();
+
+  public static Battler current;
   
   public static void main(String[] args) {
 
@@ -43,9 +47,13 @@ public class Main {
 
     enemy = new Enemy();
 
+    setTurnOrder();
+    daOrder();
+
     while((p1.getHp() > 0 || p2.getHp() > 0) && enemy.getHp() > 0){
 
       round();
+      //System.out.println("Yasss");
 
 
     }
@@ -56,34 +64,42 @@ public class Main {
   private static void round(){
 
     System.out.println("\n");
+    System.out.println("n" + turnOrder);
+    System.out.println("\n" + turnList);
+    //System.out.println("Yass");
+    current = turnList.poll();
+    //System.out.println("\n" + current + "\n");
+    System.out.println();
+    current.yourTurn();
 
-    setTurnOrder();
 
-    for(Battler current: turnOrder){
-      System.out.println();
-      current.yourTurn();
-      
-      if(enemy.getHp() <= 0){
-        
-        break;
-        
-      }
+    if(p1.getHp() <= 0 && p2.getHp() <= 0){
 
-      if(p1.getHp() <= 0 && p2.getHp() <= 0){
-
-        lose();
-
-      }
+      lose();
 
     }
 
     if(enemy.getHp() <= 0){
         
       win();
-      
+        
     }
 
+    turnList.add(current);
+  }
 
+  private static void daOrder(){
+    for(Battler bat : turnOrder)
+    turnList.add(bat);
+  }
+
+  public static Battler getBattler(){
+    return turnList.peek();
+  }
+
+  private static void updateTurnList(){
+    Battler meh = turnList.remove();
+    turnList.add(meh);
   }
 
   private static void win(){

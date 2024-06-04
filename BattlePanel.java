@@ -48,7 +48,7 @@ public class BattlePanel extends JPanel{
         if(subpanel != null){
             this.remove(subpanel);
         }
-        subpanel = new MovePanel();
+        subpanel = new MovePanel(this);
         this.add(subpanel, BorderLayout.SOUTH);
         this.repaint();
         this.revalidate();
