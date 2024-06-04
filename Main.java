@@ -22,18 +22,15 @@ public class Main {
 
     //SwingUtilities.invokeLater(() -> new BattleSimGUI());
     new BattleSimGUI();
-    //System.out.println("hee ho!");
 
     Music.loop("./audiofiles/loop.wav");
 
     //Scanner sc = new Scanner(System.in);
 
     System.out.println("Choose a class for player one.");
-    //p1 = characterSelect();
-
+  
     System.out.println("Choose a class for player two.");
-    //p2 = characterSelect();
-
+  
     inventory = new Inventory();
 
     System.out.println("At any point, type '9' to access settings or your characters' stats and move pools.\n\n"); 

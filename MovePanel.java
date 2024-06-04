@@ -26,6 +26,12 @@ public class MovePanel extends JPanel{
 
         updateButtons(Main.turnOrder.get(0));
 
+        add(one);
+        add(two);
+        add(three);
+        add(four);
+        add(five);
+
 
         one.addActionListener(new ActionListener() {
             @Override
