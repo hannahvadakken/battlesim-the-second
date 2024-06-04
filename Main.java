@@ -53,8 +53,6 @@ public class Main {
     while((p1.getHp() > 0 || p2.getHp() > 0) && enemy.getHp() > 0){
 
       round();
-      //System.out.println("Yasss");
-
 
     }
 
@@ -64,11 +62,11 @@ public class Main {
   private static void round(){
 
     System.out.println("\n");
-    System.out.println("n" + turnOrder);
+
     System.out.println("\n" + turnList);
-    //System.out.println("Yass");
+
     current = turnList.poll();
-    //System.out.println("\n" + current + "\n");
+    
     System.out.println();
     current.yourTurn();
 
@@ -91,15 +89,6 @@ public class Main {
   private static void daOrder(){
     for(Battler bat : turnOrder)
     turnList.add(bat);
-  }
-
-  public static Battler getBattler(){
-    return turnList.peek();
-  }
-
-  private static void updateTurnList(){
-    Battler meh = turnList.remove();
-    turnList.add(meh);
   }
 
   private static void win(){

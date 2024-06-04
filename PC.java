@@ -36,6 +36,47 @@ public abstract class PC extends Battler implements GetInfo{
     return String.format("\n%s\nMoves: [%s]\nStats: [%s, MP: %d]", getName(), getPrintableMovePool(), getPrintableStats(), currentMP);
   }
 
+  public boolean buttonPressed(){
+    if(MovePanel.OnePress == false && MovePanel.TwoPress == false && MovePanel.ThreePress == false 
+    && MovePanel.FourPress == false && MovePanel.FivePress == false){
+      return false;
+    }
+    return true;
+  }
+
+  public void oooh(){
+    if(MovePanel.OnePress == true){
+      Move curr = getMove(0);
+      curr.use(this, Main.enemy);
+      MovePanel.OnePress = false;
+      return;
+    }
+    else if(MovePanel.TwoPress == true){
+      Move curr = getMove(1);
+      curr.use(this, Main.enemy);
+      MovePanel.TwoPress = false;
+      return;
+    }
+    else if(MovePanel.ThreePress == true){
+      Move curr = getMove(2);
+      curr.use(this, Main.enemy);
+      MovePanel.ThreePress = false;
+      return;
+    }
+    else if(MovePanel.FourPress == true){
+      Move curr = getMove(3);
+      curr.use(this, Main.enemy);
+      MovePanel.FourPress = false;
+      return;
+    }
+    else{
+      Move curr = getMove(4);
+      curr.use(this, Main.enemy);
+      MovePanel.FivePress = false;
+      return;
+    }
+  }
+
   public void yourTurn(){
 
     if(getHp() <= 0){
@@ -45,6 +86,13 @@ public abstract class PC extends Battler implements GetInfo{
     System.out.println("What should " + getName() + " do?  ");
 
     System.out.println("0 for attack, 1 for bag, 9 for info");
+
+    while(buttonPressed() == false){
+      System.out.print("");
+    }
+
+    oooh();
+    return;
 
     int choice = Main.readInt(0, 1);
     

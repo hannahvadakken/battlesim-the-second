@@ -11,12 +11,18 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class MovePanel extends JPanel{
-    private JButton one;
+    public JButton one;
     private JButton two;
     private JButton three;
     private JButton four;
     private JButton five;
     private Battler current;
+
+    public static boolean OnePress = false;
+    public static boolean TwoPress = false;
+    public static boolean ThreePress = false;
+    public static boolean FourPress = false;
+    public static boolean FivePress = false;
 
     public MovePanel(BattlePanel screen){
         setLayout(new GridLayout(5, 1));
@@ -31,14 +37,64 @@ public class MovePanel extends JPanel{
             one.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent a){
-                    Move move = current.getMove(0);
-                    move.use(current, Main.enemy);
+                    // Move move = current.getMove(0);
+                    // move.use(current, Main.enemy);
+
                     screen.showActionPanel();
+                    OnePress = true;
     
                 }
-                });
+            });
+
+            two.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent a){
+                    // Move move = current.getMove(0);
+                    // move.use(current, Main.enemy);
+
+                    screen.showActionPanel();
+                     TwoPress = true;
+    
+                }
+            });
+
+            three.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent a){
+                    // Move move = current.getMove(0);
+                    // move.use(current, Main.enemy);
+
+                    screen.showActionPanel();
+                    ThreePress = true;
+    
+                }
+            });
+
+            four.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent a){
+                    // Move move = current.getMove(0);
+                    // move.use(current, Main.enemy);
+
+                    screen.showActionPanel();
+                    FourPress = true;
+    
+                }
+            });
+
+            five.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent a){
+                    // Move move = current.getMove(0);
+                    // move.use(current, Main.enemy);
+
+                    screen.showActionPanel();
+                    FivePress = true;
+    
+                }
+            });
         }
-        }
+    }
 
     @Override
     protected void paintComponent(Graphics g){

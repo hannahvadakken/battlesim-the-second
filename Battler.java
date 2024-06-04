@@ -185,4 +185,6 @@ public abstract class Battler implements Comparable<Battler>{
 
   public abstract void yourTurn();
 
+  
+
 }
