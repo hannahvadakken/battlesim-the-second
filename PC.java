@@ -91,8 +91,37 @@ public abstract class PC extends Battler implements GetInfo{
       System.out.print("");
     }
 
-    oooh();
-    return;
+    //oooh();
+    if(MovePanel.OnePress == true){
+      Move curr = getMove(0);
+      curr.use(this, Main.enemy);
+      MovePanel.OnePress = false;
+      return;
+    }
+    else if(MovePanel.TwoPress == true){
+      Move curr = getMove(1);
+      curr.use(this, Main.enemy);
+      MovePanel.TwoPress = false;
+      return;
+    }
+    else if(MovePanel.ThreePress == true){
+      Move curr = getMove(2);
+      curr.use(this, Main.enemy);
+      MovePanel.ThreePress = false;
+      return;
+    }
+    else if(MovePanel.FourPress == true){
+      Move curr = getMove(3);
+      curr.use(this, Main.enemy);
+      MovePanel.FourPress = false;
+      return;
+    }
+    else if(MovePanel.FivePress == true){
+      Move curr = getMove(4);
+      curr.use(this, Main.enemy);
+      MovePanel.FivePress = false;
+      return;
+    }
 
     int choice = Main.readInt(0, 1);
     
