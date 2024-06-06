@@ -35,7 +35,7 @@ public class PickTargetPanel extends JPanel {
             public void actionPerformed(ActionEvent a){
                 PC.count = 1;
                 p1 = true;
-                screen.showActionPanel();
+                screen.showWaitPanel();
 
             }
         });
@@ -45,7 +45,7 @@ public class PickTargetPanel extends JPanel {
             public void actionPerformed(ActionEvent a){
                 PC.count = 1;
                 p2 = true;
-                screen.showActionPanel();
+                screen.showWaitPanel();
 
             }
         });
@@ -55,7 +55,7 @@ public class PickTargetPanel extends JPanel {
             public void actionPerformed(ActionEvent a){
                 PC.count = 1;
                 enemy = true;
-                screen.showActionPanel();
+                screen.showWaitPanel();
 
             }
         });

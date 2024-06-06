@@ -4,6 +4,7 @@ public abstract class PC extends Battler implements GetInfo{
   private final int maxMP;
   private Move curr;
   public static int count = 0;
+  public static boolean finished = false;;
 
   public PC(int h, int s, int e, int d, int w, int m, String name, int maxMP) {
 
@@ -71,7 +72,7 @@ public abstract class PC extends Battler implements GetInfo{
       MovePanel.FourPress = false;
       return;
     }
-    else{
+    else if(MovePanel.FivePress == true){
       this.curr = getMove(4);
       //curr.use(this, Main.enemy);
       MovePanel.FivePress = false;
@@ -123,6 +124,8 @@ public abstract class PC extends Battler implements GetInfo{
     }
 
     aaah();
+
+    finished = true;
 
     return;
     
