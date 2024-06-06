@@ -34,6 +34,11 @@ public class BattlePanel extends JPanel{
         });
     }
 
+    public void showStatPanel(){
+        StatPanel stat = new StatPanel(this);
+        this.add(stat, BorderLayout.NORTH);
+    }
+
     public void showActionPanel(){
         if(subpanel != null){
             this.remove(subpanel);
