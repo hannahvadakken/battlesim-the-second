@@ -103,8 +103,6 @@ public abstract class PC extends Battler implements GetInfo{
 
   public void yourTurn(){
 
-    //finished = false;
-
     if(getHp() <= 0){
       finished = true;
       return;

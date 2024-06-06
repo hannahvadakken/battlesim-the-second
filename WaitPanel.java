@@ -27,20 +27,7 @@ public class WaitPanel extends JPanel {
                 PC.finished = false;
             }
         });
-
-        //timer.restart();
         timer.start();
         
     }
-
-    // private boolean checkFin(){
-    //     while(PC.finished = false){
-    //         return false;
-    //     }
-    //     return true;
-    // }
-    
-
-
-    
 }
