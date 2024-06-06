@@ -3,8 +3,10 @@ public abstract class PC extends Battler implements GetInfo{
   private int currentMP;
   private final int maxMP;
   private Move curr;
+  private Item item;
   public static int count = 0;
-  public static boolean finished = false;;
+  public static boolean finished = false;
+  public static boolean itemSel = false;
 
   public PC(int h, int s, int e, int d, int w, int m, String name, int maxMP) {
 
@@ -112,21 +114,112 @@ public abstract class PC extends Battler implements GetInfo{
 
     System.out.println("0 for attack, 1 for bag, 9 for info");
 
-    while(buttonPressed() == false){
+    while(ActionPanel.moveSel == false && ActionPanel.bagSel == false){
       System.out.print("");
     }
 
-    oooh();
+    if(ActionPanel.moveSel == true){
 
-    System.out.println("Who would you like to use " + curr.getName() + " on?");
+      while(buttonPressed() == false){
+        System.out.print("");
+      }
+  
+      oooh();
+  
+      System.out.println("Who would you like to use " + curr.getName() + " on?");
+  
+      while(count != 1){
+        System.out.print("");
+      }
+  
+      aaah();
+  
+      finished = true;
+      ActionPanel.moveSel = false;
+      return;
+    }
+    else if(ActionPanel.bagSel == true){
+      System.out.println("What item would you like to use?");
 
-    while(count != 1){
-      System.out.print("");
+      // while(buttonPressed() == false){
+      //   System.out.print("");
+      // }
+
+      while(itemSel == false){
+        System.out.print("");
+      }
+
+      eeeeh();
+
+      System.out.println("Who would you like to use " + item.getName() + " on?");
+
+      while(count != 1){
+        System.out.print("");
+      }
+
+      uuuh();
+
+      finished = true;
+      itemSel = false;
+      ActionPanel.bagSel = false;
+      return;
     }
 
-    aaah();
+  }
 
-    finished = true;
+  public void uuuh(){
+    if(PickTargetPanel.enemy == true){
+      item.use(this, Main.enemy);
+      PickTargetPanel.enemy = false;
+      count = 0;
+      //return;
+    }
+    else if(PickTargetPanel.p1 == true){
+      item.use(this, Main.p1);
+      PickTargetPanel.p1 = false;
+      count = 0;
+      //return;
+    }
+    else if (PickTargetPanel.p2 == true){
+      item.use(this, Main.p2);
+      PickTargetPanel.p2 = false;
+      count = 0;
+      //return;
+    }
+  }
+  
+  public void eeeeh(){
+    if(BagPanel.OnePress == true){
+      this.item = Main.inventory.get(0);
+      //curr.use(this, Main.enemy);
+      BagPanel.OnePress = false;
+      return;
+    }
+    else if(BagPanel.TwoPress == true){
+      this.item = Main.inventory.get(1);
+      //curr.use(this, Main.enemy);
+      BagPanel.TwoPress = false;
+      return;
+    }
+    else if(BagPanel.ThreePress == true){
+      this.item = Main.inventory.get(2);
+      //curr.use(this, Main.enemy);
+      BagPanel.ThreePress = false;
+      return;
+    }
+    else if(BagPanel.FourPress == true){
+      this.item = Main.inventory.get(3);
+      //curr.use(this, Main.enemy);
+      BagPanel.FourPress = false;
+      return;
+    }
+    else if(BagPanel.FivePress == true){
+      this.item = Main.inventory.get(4);
+      //curr.use(this, Main.enemy);
+      BagPanel.FivePress = false;
+      return;
+    }
+  }
 
     //return;
     
@@ -196,7 +289,5 @@ public abstract class PC extends Battler implements GetInfo{
 
 
   // }
-  
-}
 
 }

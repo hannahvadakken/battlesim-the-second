@@ -11,6 +11,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class ActionPanel extends JPanel{
+    public static boolean moveSel = false;
+    public static boolean bagSel = false;
+
     public ActionPanel(BattlePanel screen){
         setLayout(new GridLayout(1, 2));
         setPreferredSize(new Dimension(600, 150));
@@ -27,9 +30,23 @@ public class ActionPanel extends JPanel{
         move.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent a){
+                moveSel = true;
                 screen.showMovePanel();
             }
         });
+
+        if(Main.inventory.size() >= 1){
+            bag.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent a){
+                    bagSel = true;
+                    screen.showBagPanel();
+                }
+            });
+        }
+        else{
+            System.out.println("Your bag is empty!");
+        }
     }
 
     @Override
