@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class MovePanel extends JPanel{
-    public JButton one;
+    private JButton one;
     private JButton two;
     private JButton three;
     private JButton four;
@@ -40,7 +40,7 @@ public class MovePanel extends JPanel{
                     // Move move = current.getMove(0);
                     // move.use(current, Main.enemy);
 
-                    screen.showActionPanel();
+                    screen.showTargetPanel();
                     OnePress = true;
     
                 }
@@ -52,8 +52,8 @@ public class MovePanel extends JPanel{
                     // Move move = current.getMove(0);
                     // move.use(current, Main.enemy);
 
-                    screen.showActionPanel();
-                     TwoPress = true;
+                    screen.showTargetPanel();
+                    TwoPress = true;
     
                 }
             });
@@ -64,7 +64,7 @@ public class MovePanel extends JPanel{
                     // Move move = current.getMove(0);
                     // move.use(current, Main.enemy);
 
-                    screen.showActionPanel();
+                    screen.showTargetPanel();
                     ThreePress = true;
     
                 }
@@ -76,7 +76,7 @@ public class MovePanel extends JPanel{
                     // Move move = current.getMove(0);
                     // move.use(current, Main.enemy);
 
-                    screen.showActionPanel();
+                    screen.showTargetPanel();
                     FourPress = true;
     
                 }
@@ -88,7 +88,7 @@ public class MovePanel extends JPanel{
                     // Move move = current.getMove(0);
                     // move.use(current, Main.enemy);
 
-                    screen.showActionPanel();
+                    screen.showTargetPanel();
                     FivePress = true;
     
                 }

@@ -54,6 +54,16 @@ public class BattlePanel extends JPanel{
         this.revalidate();
     }
 
+    public void showTargetPanel(){
+        if(subpanel != null){
+            this.remove(subpanel);
+        }
+        subpanel = new PickTargetPanel(this);
+        this.add(subpanel, BorderLayout.SOUTH);
+        this.repaint();
+        this.revalidate();
+    }
+
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);

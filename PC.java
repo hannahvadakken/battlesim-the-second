@@ -2,6 +2,8 @@ public abstract class PC extends Battler implements GetInfo{
 
   private int currentMP;
   private final int maxMP;
+  private Move curr;
+  public static int count = 0;
 
   public PC(int h, int s, int e, int d, int w, int m, String name, int maxMP) {
 
@@ -46,33 +48,54 @@ public abstract class PC extends Battler implements GetInfo{
 
   public void oooh(){
     if(MovePanel.OnePress == true){
-      Move curr = getMove(0);
-      curr.use(this, Main.enemy);
+      this.curr = getMove(0);
+      //curr.use(this, Main.enemy);
       MovePanel.OnePress = false;
       return;
     }
     else if(MovePanel.TwoPress == true){
-      Move curr = getMove(1);
-      curr.use(this, Main.enemy);
+      this.curr = getMove(1);
+      //curr.use(this, Main.enemy);
       MovePanel.TwoPress = false;
       return;
     }
     else if(MovePanel.ThreePress == true){
-      Move curr = getMove(2);
-      curr.use(this, Main.enemy);
+      this.curr = getMove(2);
+      //curr.use(this, Main.enemy);
       MovePanel.ThreePress = false;
       return;
     }
     else if(MovePanel.FourPress == true){
-      Move curr = getMove(3);
-      curr.use(this, Main.enemy);
+      this.curr = getMove(3);
+      //curr.use(this, Main.enemy);
       MovePanel.FourPress = false;
       return;
     }
     else{
-      Move curr = getMove(4);
-      curr.use(this, Main.enemy);
+      this.curr = getMove(4);
+      //curr.use(this, Main.enemy);
       MovePanel.FivePress = false;
+      return;
+    }
+  }
+
+  public void aaah(){
+    if(PickTargetPanel.enemy == true){
+      this.curr.use(this, Main.enemy);
+      PickTargetPanel.enemy = false;
+      count = 0;
+      return;
+    }
+    else if(PickTargetPanel.p1 == true){
+      curr.use(this, Main.p1);
+      PickTargetPanel.p1 = false;
+      count = 0;
+      return;
+    }
+    else if (PickTargetPanel.p2 == true){
+      curr.use(this, Main.p2);
+      PickTargetPanel.p2 = false;
+      count = 0;
       return;
     }
   }
@@ -91,103 +114,84 @@ public abstract class PC extends Battler implements GetInfo{
       System.out.print("");
     }
 
-    //oooh();
-    if(MovePanel.OnePress == true){
-      Move curr = getMove(0);
-      curr.use(this, Main.enemy);
-      MovePanel.OnePress = false;
-      return;
-    }
-    else if(MovePanel.TwoPress == true){
-      Move curr = getMove(1);
-      curr.use(this, Main.enemy);
-      MovePanel.TwoPress = false;
-      return;
-    }
-    else if(MovePanel.ThreePress == true){
-      Move curr = getMove(2);
-      curr.use(this, Main.enemy);
-      MovePanel.ThreePress = false;
-      return;
-    }
-    else if(MovePanel.FourPress == true){
-      Move curr = getMove(3);
-      curr.use(this, Main.enemy);
-      MovePanel.FourPress = false;
-      return;
-    }
-    else if(MovePanel.FivePress == true){
-      Move curr = getMove(4);
-      curr.use(this, Main.enemy);
-      MovePanel.FivePress = false;
-      return;
+    oooh();
+
+    System.out.println("Who would you like to use " + curr.getName() + " on?");
+
+    while(count != 1){
+      System.out.print("");
     }
 
-    int choice = Main.readInt(0, 1);
+    aaah();
+
+    return;
     
-    if(choice == 0){
 
-      System.out.println(this.getPrintableMovePool());
+  //   int choice = Main.readInt(0, 1);
+    
+  //   if(choice == 0){
+
+  //     System.out.println(this.getPrintableMovePool());
       
-      Move currentMove = getMove(Main.readInt(0, 4));
+  //     Move currentMove = getMove(Main.readInt(0, 4));
 
-      while(currentMove.getCost() > this.getMP()){
+  //     while(currentMove.getCost() > this.getMP()){
 
-        System.out.println("Not enough mana!");
-        currentMove = getMove(Main.readInt(0, 4));
+  //       System.out.println("Not enough mana!");
+  //       currentMove = getMove(Main.readInt(0, 4));
           
-      }
+  //     }
 
-      System.out.println("Who would you like to use " + currentMove.getName() + " on?");
+  //     System.out.println("Who would you like to use " + currentMove.getName() + " on?");
         
-      for(int i = 0; i < Main.turnOrder.size(); i++){
-        System.out.println(String.format("(%d) %s // ", i, Main.turnOrder.get(i).getName()));
-      }
+  //     for(int i = 0; i < Main.turnOrder.size(); i++){
+  //       System.out.println(String.format("(%d) %s // ", i, Main.turnOrder.get(i).getName()));
+  //     }
 
-      Battler target = Main.turnOrder.get(Main.readInt(0, Main.turnOrder.size() - 1));
+  //     Battler target = Main.turnOrder.get(Main.readInt(0, Main.turnOrder.size() - 1));
 
-      while(target.getHp() <= 0){
-        System.out.println("Target is dead!");
-        target = Main.turnOrder.get(Main.readInt(0, Main.turnOrder.size()));
+  //     while(target.getHp() <= 0){
+  //       System.out.println("Target is dead!");
+  //       target = Main.turnOrder.get(Main.readInt(0, Main.turnOrder.size()));
 
-      }
+  //     }
       
-      currentMove.use(this, target);
+  //     currentMove.use(this, target);
 
     
-  } else {
+  // } else {
 
-    if(Main.inventory.size() <= 0){
-      System.out.println("Inventory is empty!");
-      yourTurn();
-      return;
+  //   if(Main.inventory.size() <= 0){
+  //     System.out.println("Inventory is empty!");
+  //     yourTurn();
+  //     return;
 
-    }
+  //   }
     
-    System.out.println(Main.inventory.getPrintableInventory());
+  //   System.out.println(Main.inventory.getPrintableInventory());
 
-    Item theItemInQuestion = Main.inventory.get(Main.readInt(0, Main.inventory.size()));
+  //   Item theItemInQuestion = Main.inventory.get(Main.readInt(0, Main.inventory.size()));
 
-    System.out.println("Who would you like to use " + theItemInQuestion.getName() + " on?");
+  //   System.out.println("Who would you like to use " + theItemInQuestion.getName() + " on?");
         
-    for(int i = 0; i < Main.turnOrder.size(); i++){
-      System.out.println(String.format("(%d) %s // ", i, Main.turnOrder.get(i).getName()));
-    }
+  //   for(int i = 0; i < Main.turnOrder.size(); i++){
+  //     System.out.println(String.format("(%d) %s // ", i, Main.turnOrder.get(i).getName()));
+  //   }
 
-    Battler target = Main.turnOrder.get(Main.readInt(0, Main.turnOrder.size() - 1));
+  //   Battler target = Main.turnOrder.get(Main.readInt(0, Main.turnOrder.size() - 1));
 
-    while(target.getHp() <= 0){
-      System.out.println("Target is dead!");
-      target = Main.turnOrder.get(Main.readInt(0, Main.turnOrder.size()));
+  //   while(target.getHp() <= 0){
+  //     System.out.println("Target is dead!");
+  //     target = Main.turnOrder.get(Main.readInt(0, Main.turnOrder.size()));
 
-    }
-
-
-    theItemInQuestion.use(this, target);
+  //   }
 
 
+  //   theItemInQuestion.use(this, target);
 
-  }
+
+
+  // }
   
 }
 
