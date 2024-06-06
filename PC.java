@@ -85,25 +85,28 @@ public abstract class PC extends Battler implements GetInfo{
       this.curr.use(this, Main.enemy);
       PickTargetPanel.enemy = false;
       count = 0;
-      return;
+      //return;
     }
     else if(PickTargetPanel.p1 == true){
       curr.use(this, Main.p1);
       PickTargetPanel.p1 = false;
       count = 0;
-      return;
+      //return;
     }
     else if (PickTargetPanel.p2 == true){
       curr.use(this, Main.p2);
       PickTargetPanel.p2 = false;
       count = 0;
-      return;
+      //return;
     }
   }
 
   public void yourTurn(){
 
+    //finished = false;
+
     if(getHp() <= 0){
+      finished = true;
       return;
     }
 
@@ -127,7 +130,7 @@ public abstract class PC extends Battler implements GetInfo{
 
     finished = true;
 
-    return;
+    //return;
     
 
   //   int choice = Main.readInt(0, 1);

@@ -9,8 +9,10 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 public class WaitPanel extends JPanel {
+    private Timer timer;
 
     public WaitPanel(BattlePanel screen){
         setLayout(new BorderLayout());
@@ -18,17 +20,25 @@ public class WaitPanel extends JPanel {
         setBackground(Color.WHITE);
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
         setVisible(true);
-        if(checkFin() == true){
-            screen.showActionPanel();
-        }
+        timer = new Timer(20, e -> {
+            if (PC.finished) {
+                timer.stop();
+                screen.showActionPanel();
+                PC.finished = false;
+            }
+        });
+
+        //timer.restart();
+        timer.start();
+        
     }
 
-    private boolean checkFin(){
-        while(PC.finished = false){
-            return false;
-        }
-        return true;
-    }
+    // private boolean checkFin(){
+    //     while(PC.finished = false){
+    //         return false;
+    //     }
+    //     return true;
+    // }
     
 
 
