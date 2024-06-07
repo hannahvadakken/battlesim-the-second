@@ -11,7 +11,8 @@ import javax.swing.JPanel;
 
 public class BattlePanel extends JPanel{
 
-    private JPanel subpanel; 
+    private JPanel subpanel;
+    private JPanel aniPanel;
 
     public BattlePanel(BattleSimGUI screen){
         setLayout(new BorderLayout());
@@ -24,6 +25,7 @@ public class BattlePanel extends JPanel{
         add(goShop, BorderLayout.NORTH);
 
         showActionPanel();
+        showStatPanel();
 
         goShop.addActionListener(new ActionListener() {
             @Override
@@ -35,8 +37,8 @@ public class BattlePanel extends JPanel{
     }
 
     public void showStatPanel(){
-        StatPanel stat = new StatPanel(this);
-        this.add(stat, BorderLayout.NORTH);
+        aniPanel = new AnimationPanel(this);
+        this.add(aniPanel, BorderLayout.NORTH);
     }
 
     public void showActionPanel(){
