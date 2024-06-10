@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
+import javax.swing.text.DefaultCaret;
 
 public class TextPanel extends JPanel {
     private JLabel tarea; 
@@ -39,6 +40,8 @@ public class TextPanel extends JPanel {
 
         JScrollPane scroll = new JScrollPane(test);
         add(scroll, BorderLayout.CENTER);
+        DefaultCaret caret = (DefaultCaret)test.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
     }
 
     public void addText(String words){

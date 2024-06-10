@@ -25,7 +25,8 @@ public class AnimationPanel extends JPanel{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        inputCharacters();
+        inputP1();
+        inputP2();
     }
 
     @Override
@@ -34,14 +35,69 @@ public class AnimationPanel extends JPanel{
         g.setColor(Color.WHITE);
         g.drawImage(backdrop, 0, 0, getWidth(), getHeight(), this);
         if(Main.p1.getHp() > 0){
-            g.drawImage(p1, 200, 200, this);
+            g.drawImage(p1, 30, 140, this);
+        }
+        if(Main.p2.getHp() > 0){
+            g.drawImage(p2, 30, 280, this);
         }
     }
 
-    public void inputCharacters(){
+    public void inputP1(){
         if(Main.p1 instanceof Mage){
             try {
                 p1 = ImageIO.read(getClass().getResource("./images/mage.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(Main.p1 instanceof Brawler){
+            try {
+                p1 = ImageIO.read(getClass().getResource("./images/brawler.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(Main.p1 instanceof Cleric){
+            try {
+                p1 = ImageIO.read(getClass().getResource("./images/cleric.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(Main.p1 instanceof Thief){
+            try {
+                p1 = ImageIO.read(getClass().getResource("./images/theif.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void inputP2(){
+        if(Main.p2 instanceof Mage){
+            try {
+                p2 = ImageIO.read(getClass().getResource("./images/mage.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(Main.p2 instanceof Brawler){
+            try {
+                p2 = ImageIO.read(getClass().getResource("./images/brawler.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(Main.p2 instanceof Cleric){
+            try {
+                p2 = ImageIO.read(getClass().getResource("./images/cleric.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(Main.p2 instanceof Thief){
+            try {
+                p2 = ImageIO.read(getClass().getResource("./images/theif.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
