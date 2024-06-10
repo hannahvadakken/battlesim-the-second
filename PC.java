@@ -42,47 +42,52 @@ public abstract class PC extends Battler implements GetInfo{
   }
 
   public boolean buttonPressed(){
-    if(MovePanel.OnePress == false && MovePanel.TwoPress == false && MovePanel.ThreePress == false 
-    && MovePanel.FourPress == false && MovePanel.FivePress == false){
-      return false;
-    }
-    return true;
+    return !(MovePanel.OnePress == false && MovePanel.TwoPress == false && MovePanel.ThreePress == false 
+    && MovePanel.FourPress == false && MovePanel.FivePress == false);
+
   }
 
-  public void oooh(){
+  public void oooh(){ //move selection
+
+
+    System.out.println(this.getMP());
+
     if(MovePanel.OnePress == true){
       this.curr = getMove(0);
       //curr.use(this, Main.enemy);
       MovePanel.OnePress = false;
-      return;
     }
     else if(MovePanel.TwoPress == true){
       this.curr = getMove(1);
       //curr.use(this, Main.enemy);
       MovePanel.TwoPress = false;
-      return;
     }
     else if(MovePanel.ThreePress == true){
       this.curr = getMove(2);
       //curr.use(this, Main.enemy);
       MovePanel.ThreePress = false;
-      return;
     }
     else if(MovePanel.FourPress == true){
       this.curr = getMove(3);
       //curr.use(this, Main.enemy);
       MovePanel.FourPress = false;
-      return;
     }
     else if(MovePanel.FivePress == true){
       this.curr = getMove(4);
       //curr.use(this, Main.enemy);
       MovePanel.FivePress = false;
-      return;
     }
+
+    if(this.getMP() < curr.getCost()){
+      curr = null;
+      Main.x.showBattle();
+      
+
+    }
+
   }
 
-  public void aaah(){
+  public void aaah(){ //target selection
     if(PickTargetPanel.enemy == true){
       this.curr.use(this, Main.enemy);
       PickTargetPanel.enemy = false;
@@ -120,11 +125,17 @@ public abstract class PC extends Battler implements GetInfo{
 
     if(ActionPanel.moveSel == true){
 
-      while(buttonPressed() == false){
-        System.out.print("");
+      curr = null;
+
+      while(curr == null){
+
+        while(buttonPressed() == false){
+          System.out.print("");
+        }
+    
+        oooh();
+
       }
-  
-      oooh();
   
       System.out.println("Who would you like to use " + curr.getName() + " on?");
   
@@ -167,7 +178,7 @@ public abstract class PC extends Battler implements GetInfo{
 
   }
 
-  public void uuuh(){
+  public void uuuh(){ //bag enemy selection
     if(PickTargetPanel.enemy == true){
       item.use(this, Main.enemy);
       PickTargetPanel.enemy = false;
@@ -188,7 +199,7 @@ public abstract class PC extends Battler implements GetInfo{
     }
   }
   
-  public void eeeeh(){
+  public void eeeeh(){ //bag item selection
     if(BagPanel.OnePress == true){
       this.item = Main.inventory.get(0);
       //curr.use(this, Main.enemy);
