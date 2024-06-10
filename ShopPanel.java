@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class ShopPanel extends JPanel{
+    public static boolean battling = false;
     public ShopPanel(BattleSimGUI screen){
         setLayout(new BorderLayout());
         setPreferredSize(new Dimension(600, 600));
@@ -25,6 +26,7 @@ public class ShopPanel extends JPanel{
             public void actionPerformed(ActionEvent a){
                 screen.addDialogue("Going to battle...");
                 screen.showBattle();
+                battling = true;
             }
         });
     }

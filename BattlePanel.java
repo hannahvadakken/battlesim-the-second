@@ -90,6 +90,7 @@ public class BattlePanel extends JPanel{
         this.repaint();
         this.revalidate();
     }
+    
 
     @Override
     protected void paintComponent(Graphics g){

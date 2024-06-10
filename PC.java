@@ -162,9 +162,26 @@ public abstract class PC extends Battler implements GetInfo{
       finished = true;
       itemSel = false;
       ActionPanel.bagSel = false;
+
+      checkShop();
       return;
     }
 
+  }
+
+  public void checkShop(){
+    while(Choice.selection == false){
+      System.out.println("");
+    }
+
+    while(Choice.selection == true){
+      if(ShopPanel.battling == true){
+        return;
+      }
+      else if(ShopPanel.battling == false){
+        System.out.println("");
+      }
+    }
   }
 
   public void uuuh(){
