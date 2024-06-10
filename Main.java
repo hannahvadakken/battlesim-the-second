@@ -21,11 +21,13 @@ public class Main {
   public static Queue<Battler> turnList = new LinkedList<>();
 
   public static Battler current;
+
+  public static BattleSimGUI x;
   
   public static void main(String[] args) {
 
     //SwingUtilities.invokeLater(() -> new BattleSimGUI());
-    new BattleSimGUI();
+    x = new BattleSimGUI();
 
     Music.loop("./audiofiles/loop.wav");
 
