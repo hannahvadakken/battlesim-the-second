@@ -13,6 +13,7 @@ public class AnimationPanel extends JPanel{
     private Image backdrop;
     private Image p1;
     private Image p2;
+    private Image enemy;
     
     public AnimationPanel(BattlePanel screen){
         setLayout(null);
@@ -27,6 +28,11 @@ public class AnimationPanel extends JPanel{
         }
         inputP1();
         inputP2();
+        try {
+            enemy = ImageIO.read(getClass().getResource("./images/slime.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -40,6 +46,7 @@ public class AnimationPanel extends JPanel{
         if(Main.p2.getHp() > 0){
             g.drawImage(p2, 30, 280, this);
         }
+        g.drawImage(enemy, 410, 220, this);
     }
 
     public void inputP1(){
