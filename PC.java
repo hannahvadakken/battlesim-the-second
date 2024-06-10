@@ -173,8 +173,9 @@ public abstract class PC extends Battler implements GetInfo{
       finished = true;
       itemSel = false;
       ActionPanel.bagSel = false;
+      ShopPanel.battling = false;
 
-      checkShop();
+      //checkShop();
       return;
     }
 

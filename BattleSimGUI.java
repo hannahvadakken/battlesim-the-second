@@ -63,6 +63,18 @@ public class BattleSimGUI {
         frame.revalidate();
     }
 
+    public void showChoicPanel(){
+        if(panel != null){
+            frame.remove(panel);
+        }
+        panel = new Choice(this);
+        frame.add(panel, BorderLayout.SOUTH);
+        frame.repaint();
+        frame.revalidate();
+    }
+
+    
+
     public void charSelect(PC character){
         if(player1){
             Main.p1 = character;
