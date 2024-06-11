@@ -39,7 +39,7 @@ public class Main {
   
     inventory = new Inventory();
 
-    System.out.println("At any point, type '9' to access settings or your characters' stats and move pools.\n\n"); 
+    System.out.println("At any point, select Help to access settings or your characters' stats and move pools.\n\n"); 
 
     while(p2 == null){
       System.out.print("");
@@ -92,7 +92,8 @@ public class Main {
   }
 
   private static void win(){
-    System.out.println(Colors.green("Player victory!\n\n"));
+    System.out.println("Player victory!\n\n");
+    System.out.println("Would you like to go to the shop?");
 
     turnOrder.remove(enemy);
     Music.sound("./audiofiles/win_sound.wav");
@@ -118,7 +119,7 @@ public class Main {
   }
 
   private static void lose(){
-    System.out.println(Colors.red("Enemy victory :(\n\n"));
+    System.out.println("Enemy victory :(\n\n");
     System.exit(0);
 
   }

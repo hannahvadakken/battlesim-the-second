@@ -23,9 +23,29 @@ public class ActionPanel extends JPanel{
 
         JButton move = new JButton("Moves");
         JButton bag = new JButton("Bag");
+        JButton help = new JButton("Help");
 
         add(move);
         add(bag);
+        add(help);
+
+        help.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent a){
+                System.out.println(Main.p1.getInfo());
+    
+                for(int i = 0; i < 5; i++)
+                    System.out.println("(" + i + ") " + Main.p1.getMove(i).getInfo());
+
+                System.out.println(Main.p2.getInfo());
+    
+                for(int i = 0; i < 5; i++)
+                    System.out.println("(" + i + ") " + Main.p2.getMove(i).getInfo());
+
+                System.out.println(Main.inventory.getPrintableInventory());
+
+            }
+        });
 
         move.addActionListener(new ActionListener() {
             @Override
