@@ -103,6 +103,15 @@ public class Main {
     Inventory.setGold(Inventory.getGold() + goldReceived);
 
     enemy = ++counter % 3 == 0 ? new Boss() : new Enemy();
+
+    x.showChoicPanel();
+
+    while(ShopPanel.battling = false){
+      System.out.println("");
+    }
+
+    setTurnOrder();
+    daOrder();
     
     round();
 

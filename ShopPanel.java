@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class ShopPanel extends JPanel{
-    public static boolean battling = false;
+    public static boolean battling = true;
     public ShopPanel(BattleSimGUI screen){
         setLayout(new BorderLayout());
         setPreferredSize(new Dimension(600, 600));

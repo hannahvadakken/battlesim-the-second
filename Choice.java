@@ -30,6 +30,7 @@ public class Choice extends JPanel{
             @Override
             public void actionPerformed(ActionEvent a){
                 ShopPanel.battling = false;
+                selection = true;
                 screen.showShop();
             }
         });
@@ -38,6 +39,7 @@ public class Choice extends JPanel{
             @Override
             public void actionPerformed(ActionEvent a){
                 ShopPanel.battling = true;
+                selection = true;
                 screen.showBattle();
             }
         });
