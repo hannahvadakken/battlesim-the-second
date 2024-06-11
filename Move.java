@@ -12,7 +12,7 @@ public abstract class Move implements GetInfo, Use{
     }
 
     public String getName() {
-        return Colors.yellow(name);
+        return name;
     }
 
     public int getCost() {

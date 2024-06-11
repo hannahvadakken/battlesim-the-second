@@ -53,6 +53,18 @@ public class BattleSimGUI {
         frame.revalidate();
     }
 
+    public void showChoicePanel(){
+        if(panel != null){
+            frame.remove(panel);
+        }
+        //panel = new ChoicePanel(this);
+        frame.add(panel, BorderLayout.CENTER);
+        frame.repaint();
+        frame.revalidate();
+    }
+
+    
+
     public void showCharacterSelectionScreen(){
         if(panel != null){
             frame.remove(panel);
@@ -66,13 +78,13 @@ public class BattleSimGUI {
     public void charSelect(PC character){
         if(player1){
             Main.p1 = character;
-            System.out.println(Main.p1);
+            System.out.println(Main.p1.getName());
             System.out.println("Character one selected.");
             player1 = false;
         }
         else{
             Main.p2 = character;
-            System.out.println(Main.p2);
+            System.out.println(Main.p2.getName());
             System.out.println("Character two selected..");
             showBattle();
         }

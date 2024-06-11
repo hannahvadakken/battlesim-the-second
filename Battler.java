@@ -47,7 +47,7 @@ public abstract class Battler implements Comparable<Battler>{
   // getters
 
   public String getName() {
-    return color + name + Colors.reset;
+    return name;
   }
 
   public int getHp() {
